@@ -1,0 +1,10 @@
+bat
+chezmoi
+eza
+fd
+fzf
+git-delta
+neovim
+ripgrep
+tldr
+tmux

@@ -1,0 +1,108 @@
+[
+  {
+    "key": "ctrl+shift+h",
+    "command": "workbench.action.increaseViewWidth"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "workbench.action.decreaseViewWidth"
+  },
+  {
+    "key": "shift+j",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+  },
+  {
+    "key": "shift+k",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+  },
+  {
+    "key": "shift+u",
+    "command": "extension.vim_ctrl+r",
+    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+  },
+
+  // ctrl+t to toggle terminal
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+
+  // ctrl+hjkl to navigate panes
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown"
+  },
+
+  // ctrl+[] to switch views in the sidebar and terminal
+  {
+    "key": "ctrl+]",
+    "command": "workbench.action.nextSideBarView",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "workbench.action.previousSideBarView",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+]",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
+
+  // ctrl+jk to navigate suggestions/selections
+  {
+    "key": "ctrl+j",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+
+  {
+    "key": "ctrl+enter",
+    "command": "workbench.action.splitEditor"
+  },
+
+  {
+    "key": "ctrl+-",
+    "command": "workbench.action.splitEditorDown"
+  },
+
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeActiveEditor"
+  }
+]

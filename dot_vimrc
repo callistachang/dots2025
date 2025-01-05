@@ -1,0 +1,126 @@
+" This is a quick drop-in vimrc without any plugins
+let mapleader=","
+
+"----------------------------------------
+" Keybindings
+"----------------------------------------
+" Escape to normal mode
+inoremap jk <esc>
+" Navigate to start and end of line
+nnoremap <left> ^
+nnoremap <right> g_
+" Go back a selection
+nnoremap <Space> ,
+" Copy
+noremap Y y$
+noremap <leader>y "*y
+noremap <leader>p "*p
+" Undo
+nnoremap U <c-r>
+" Save
+nnoremap <leader>w :w!<cr>
+inoremap <leader>w <Esc>:w!<cr>
+" Quit
+nnoremap <leader>q :q!<cr>
+inoremap <leader>q <Esc>:q!<cr>
+" Doesn't exit visual mode when indenting
+vnoremap < <gv
+vnoremap > >gv
+" Move lines up and down
+nnoremap <up> :m .+1<CR>==
+nnoremap <up> :m .-2<CR>==
+vnoremap <down> :m '>+1<CR>gv=gv
+vnoremap <down> :m '<-2<CR>gv=gv
+" Quick :nohl
+nnoremap <esc> :nohl<CR>
+
+"----------------------------------------
+" Aesthetic
+"----------------------------------------
+syntax on
+set term=xterm-256color
+set termguicolors
+
+" Highlight current line in insert mode
+hi CursorLine ctermbg=237 ctermfg=grey guibg=#5a5a5a cterm=none gui=none
+hi LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+:autocmd InsertEnter * set cul
+:autocmd InsertLeave * set nocul
+
+"----------------------------------------
+" General
+"----------------------------------------
+set title
+set encoding=utf-8
+set splitright splitbelow
+set linebreak nowrap
+set number relativenumber
+set showmatch
+set scrolloff=5
+set hidden
+set noerrorbells
+set noswapfile nobackup nowritebackup
+set mouse=a
+set nocompatible
+set bs=2
+" Fix cursor movement lag
+set ttimeout
+set ttimeoutlen=1
+set listchars=tab:>-,trail:~,extends:>,precedes:<,space:.
+set ttyfast
+" Indentation
+filetype plugin indent on
+set expandtab
+set tabstop=2 shiftwidth=2
+set autoindent smartindent
+" Search
+set ignorecase smartcase
+set hlsearch incsearch
+" Persistent undos
+if !isdirectory($HOME."/.vim")
+    call mkdir($HOME."/.vim", "", 0770)
+endif
+if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+endif
+set undodir=~/.vim/undo-dir
+set undofile
+
+"----------------------------------------
+" Comments
+"----------------------------------------
+let s:comment_map = {
+    \   "go": '\/\/',
+    \   "java": '\/\/',
+    \   "javascript": '\/\/',
+    \   "python": '#',
+    \   "ruby": '#',
+    \   "rust": '\/\/',
+    \   "sh": '#',
+    \   "profile": '#',
+    \   "bashrc": '#',
+    \   "conf": '#',
+    \   "bash_profile": '#',
+    \   "zsh": '#',
+    \   "vim": '"',
+    \ }
+function! ToggleComment()
+    if has_key(s:comment_map, &filetype)
+        let comment_leader = s:comment_map[&filetype]
+        if getline('.') =~ "^\\s*" . comment_leader . " "
+            execute "silent s/^\\(\\s*\\)" . comment_leader . " /\\1/"
+        else
+            if getline('.') =~ "^\\s*" . comment_leader
+                execute "silent s/^\\(\\s*\\)" . comment_leader . "/\\1/"
+            else
+                execute "silent s/^\\(\\s*\\)/\\1" . comment_leader . " /"
+            end
+        end
+    else
+        echo "No comment leader found for filetype"
+    end
+endfunction
+nnoremap <C-_> :call ToggleComment()<CR>
+inoremap <C-_> <C-o>:call ToggleComment()<CR>
+vnoremap <C-_> :call ToggleComment()<CR>gv

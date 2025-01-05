@@ -1,0 +1,18 @@
+[user]
+	name = Callista Chang
+	email = changcallista@gmail.com
+[push]
+  autoSetupRemote = true
+[core]
+	excludesfile = /Users/callista/.gitignore_global
+	pager = delta
+  filemode = false # ignore file permission changes
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictStyle = zdiff3
+[rerere]
+  enabled = true
+  autoupdate = true

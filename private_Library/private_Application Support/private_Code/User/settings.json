@@ -1,0 +1,273 @@
+{
+  "notebook.output.wordWrap": true,
+  "git.enableSmartCommit": true,
+  "editor.lineHeight": 0,
+  "editor.fontSize": 15,
+  "window.zoomLevel": -1,
+  "editor.mouseWheelZoom": false,
+  "editor.snippetSuggestions": "top",
+  "editor.suggestSelection": "first",
+  "editor.tabCompletion": "on",
+  "editor.cursorStyle": "line",
+  "editor.insertSpaces": true,
+  "editor.lineNumbers": "relative",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.inlineSuggest.enabled": true,
+  "editor.renderWhitespace": "selection",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "outline.collapseItems": "alwaysExpand",
+  "lldb.showDisassembly": "never",
+  "workbench.editor.revealIfOpen": true,
+  "search.followSymlinks": false,
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/*.egg-info": true,
+    "**/__pycache__": true
+  },
+
+  // workbench
+  "workbench.tree.indent": 12,
+  "workbench.tree.renderIndentGuides": "always",
+
+  // terminal
+  "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.commandsToSkipShell": [
+    "-workbench.action.terminal.focusFind", // ctrl+f to autocomplete in the terminal
+    "-workbench.action.quickOpen"
+  ],
+
+  // explorer
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+
+  // telemetry
+  "telemetry.telemetryLevel": "off",
+
+  // files
+  "files.autoSave": "onFocusChange",
+
+  // security
+  "security.workspace.trust.untrustedFiles": "open",
+
+  /* ===== LANGUAGE-SPECIFIC ===== */
+  // json
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "C_Cpp.default.cppStandard": "c++23",
+
+  /* ===== EXTENSIONS ===== */
+  "extensions.ignoreRecommendations": true,
+
+  // Error Lens
+  "workbench.colorCustomizations": {
+    "errorLens.errorBackground": "#e454540a",
+    "errorLens.errorForeground": "#ff646499",
+    "errorLens.warningBackground": "#ff942f0a",
+    "errorLens.warningForeground": "#fa973a99"
+  },
+
+  // Font Shortcuts
+  "fontshortcuts.step": 1,
+
+  // https://github.com/tpope/vim-surround
+  // cs"' to change "Hello world" to 'Hello world'
+  // https://github.com/michaeljsmith/vim-indent-object
+  // <operator>ii (e.g. yii) copies everything in this indentation level
+  // gq<motion> (e.g. gq10j) to wrap all words to a line limit - good for comments
+  "vim.leader": ",",
+  "vim.surround": true,
+  "vim.easymotion": true,
+  "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
+  "vim.easymotionMarkerFontWeight": "bold",
+  "vim.gdefault": true,
+  "vim.hlsearch": true,
+  "vim.highlightedyank.enable": true,
+
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    },
+    // ,w to save file
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"],
+      "after": ["Esc"]
+    },
+    // ,f to format and save file
+    {
+      "before": ["<leader>", "f"],
+      "commands": [
+        "editor.action.formatDocument",
+        "workbench.action.files.save"
+      ],
+      "after": ["Esc"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
+    },
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": ["<esc>"],
+      "commands": [":nohl"]
+    },
+    // s to trigger EasyMotion
+    {
+      "before": ["s"],
+      "after": ["<leader>", "<leader>", "<leader>", "b", "d", "w"]
+    },
+    // gd goes to definition (cpp file)
+    // gD goes to declaration (h file)
+    {
+      "before": ["g", "D"],
+      "commands": ["editor.action.revealDeclaration"]
+    },
+    // gr pulls up references
+    {
+      "before": ["g", "r"],
+      "commands": ["references-view.findReferences"]
+    },
+
+    // ,w to save file
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    },
+    // ,f to format and save file
+    {
+      "before": ["<leader>", "f"],
+      "commands": [
+        "editor.action.formatDocument",
+        "workbench.action.files.save"
+      ]
+    },
+    {
+      "before": ["<leader>", "q"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "<leader>"],
+      "commands": ["C_Cpp.SwitchHeaderSource"]
+    },
+    {
+      "before": [" ", " "],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": [" ", "p"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    {
+      "before": [" ", "s"],
+      "commands": ["workbench.action.showAllSymbols"]
+    },
+    {
+      "before": [" ", "a"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "m", "m"],
+      "commands": ["bookmarks.toggle"]
+    },
+    {
+      "before": ["<leader>", "m", "b"],
+      "commands": ["bookmarks.listFromAllFiles"]
+    },
+    {
+      "before": ["<leader>", "b"],
+      "commands": ["editor.debug.action.toggleBreakpoint"]
+    },
+    {
+      "before": [" ", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": [" ", "a"],
+      "commands": ["workbench.action.toggleActivityBar"]
+    },
+    {
+      "before": [" ", "c", "r"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": [" ", "c", "a"],
+      "commands": ["editor.action.refactor"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"],
+      "after": ["Esc"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": [
+        "editor.action.formatDocument",
+        "workbench.action.files.save"
+      ],
+      "after": ["Esc"]
+    },
+    {
+      "before": ["<leader>", "y"],
+      "commands": ["gitlens.copyRemoteFileUrlToClipboard"]
+    }
+  ],
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "terminal.integrated.inheritEnv": false,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "gitlens.mode.active": "zen",
+  "workbench.iconTheme": "material-icon-theme"
+}
